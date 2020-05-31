@@ -1,0 +1,33 @@
+import plotly.graph_objects as go
+import pandas as pd
+
+fig = go.Figure(data=go.Choropleth(
+    locations = ['ALB', 	'ATG', 	'ARG', 	'ARM', 	'ABW', 	'AUS', 	'AUT', 	'AZE', 	'BHM', 	'BHR', 	'BRB', 	'BLR', 	'BEL', 	'BLZ', 	'BIH', 	'BRA', 	'BGR', 	'CPV', 	'CAN', 	'CHL', 	'COL', 	'CRI', 	'HRV', 	'CUB', 	'CYP', 	'CZE', 	'DNK', 	'DMA', 	'ECU', 	'SLV', 	'EST', 	'FJI', 	'FIN', 	'FRA', 	'GEO', 	'DEU', 	'GRC', 	'GRD', 	'GTM', 	'GUY', 	'HUN', 	'ISL', 	'IRL', 	'ISR', 	'ITA', 	'JAM', 	'JPN', 	'KAZ', 	'KIR', 	'KWT', 	'KGZ', 	'LVA', 	'LTU', 	'LUX', 	'MAC', 	'MDV', 	'MLT', 	'MUS', 	'MEX', 	'MNG', 	'MNE', 	'NLD', 	'NZL', 	'NIC', 	'NOR', 	'OMN', 	'PAN', 	'PRY', 	'PHL', 	'POL', 	'PRT', 	'PRI', 	'QAT', 	'KOR', 	'ROU', 	'RUS', 	'KNA', 	'LCA', 	'VCT', 	'SMR', 	'SRB', 	'SYC', 	'SGP', 	'SVK', 	'SVN', 	'ZAF', 	'ESP', 	'LKA', 	'SUR', 	'SWE', 	'CHE', 	'THA', 	'TTO', 	'TUR', 	'TKM', 	'UKR', 	'ARE', 	'GBR', 	'USA', 	'URY', 'UZB'],
+    z = [1970,	11,	82219,	1905,	101,	70111,	50073,	1656,	93,	463,	177,	59892,	62761,	348,	318,	226613,	36388,	42,	107561,	40895,	53080,	6792,	18429,	41418,	412,	43687,	15297,	0,	20660,	11683,	7034,	304,	33677,	329127,	3224,	291262,	12368,	38,	8149,	3426,	73891,	1108,	12574,	11294,	132060,	184,	806902,	101546,	53,	966,	13090,	12770,	28039,	1958,	27,	20,	585,	3894,	111139,	423,	472,	50833,	14383,	2013,	16992,	33,	3483,	4783,	21330,	139098,	24061,	9043,	574,	261730,	72777,	1209742,	0,	230,	124,	4,	24179,	98,	10089,	13437,	10615,	7321,	100202,	55641,	2166,	37795,	26217,	110643,	4039,	10131,	8624,	319950,	622,	136805,	1034013,	13138,	34803],
+    text = countrys_names,
+    colorscale = 'Blues',
+    autocolorscale=False,
+    reversescale=False,
+    marker_line_color='darkgray',
+    marker_line_width=0.5,
+))
+
+fig.update_layout(
+    title_text='Registros de Suicidios por Países entre 1985 e 2016',
+    geo=dict(
+        showframe=False,
+        showcoastlines=False,
+        projection_type='equirectangular'
+    ),
+    annotations = [dict(
+        x=0.55,
+        y=0.1,
+        xref='paper',
+        yref='paper',
+        text='Source: <a href="https://www.kaggle.com/russellyates88/suicide-rates-overview-1985-to-2016">\
+            United Nations Development Program - 2018</a>',
+        showarrow = False
+    )]
+)
+
+fig.show()
